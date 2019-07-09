@@ -19,15 +19,6 @@ public class PixelSortingGlitchingStrategy extends AbstractGlitchingStrategy {
     }
 
 
-    public void loadPixelsSample() {
-        ArrayList<Pixel> tmp = new ArrayList<>();
-        for(int y = getStartY(); y!=getEndY(); ++y) {
-            for(int x = getStartX(); x!=getEndX(); ++x)
-                tmp.add(new Pixel(x,y, getBufi().getRGB(x,y)));
-        }
-        this.setEchantillon(tmp);
-    }
-
     public void applyStrategy() {
         Comparator<Pixel> byRGB = Comparator.comparingInt(Pixel::getRgb);
         ArrayList<Pixel> newechantillon = (ArrayList<Pixel>) this.getEchantillon().clone();

@@ -44,8 +44,12 @@ public class UI {
         try {
             img = ImageIO.read(new File(file));
             AbstractGlitchingStrategy load = new PixelSortingGlitchingStrategy(img);
-            for(int i = 0; i != 30; ++i) {
+            for(int i = 0; i != 15; ++i) {
                 img = load.bugCycle();
+            }
+            AbstractGlitchingStrategy load2 = new InvertColorGlitchingStrategy(img);
+            for(int i = 0; i != 15; ++i) {
+                img = load2.bugCycle();
             }
             JLabel picLabel = new JLabel(new ImageIcon(img));
             imgjp.add(picLabel);
